@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import StoryCard from "@/components/StoryCard";
 import { getDestination, DESTINATION_STATUS_LABEL } from "@/lib/supabase";
+import { conceptImage } from "@/lib/images";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -20,17 +22,29 @@ export default async function DestinationsPage() {
     <>
       <Header active="destinations" />
 
-      <section className={`wrap ${styles.pHero}`}>
-        <div className="eyebrow">Destinations</div>
-        <div className="huge" style={{ marginTop: 22 }}>
-          GROUND WE&apos;VE
-          <br />
-          <span className="gold italicGold">BEGUN TO SHAPE.</span>
+      <section className={styles.hero}>
+        <Image
+          src={conceptImage("category-theme-park")}
+          alt="Silhouette of a theme park attraction at golden hour"
+          fill
+          priority
+          className={styles.heroImage}
+          sizes="100vw"
+        />
+        <div className={styles.heroScrim} />
+        <span className={styles.conceptBadge}>Concept render</span>
+        <div className={`wrap ${styles.heroInner}`}>
+          <div className="eyebrow">Destinations</div>
+          <div className={styles.heroHeading}>
+            GROUND WE&apos;VE
+            <br />
+            <span className="gold">BEGUN TO SHAPE.</span>
+          </div>
+          <p className="bodyTxt" style={{ marginTop: 22 }}>
+            One concession underway. A pipeline built for the next three, across government,
+            private, and our own ground.
+          </p>
         </div>
-        <p className="bodyTxt" style={{ marginTop: 26 }}>
-          One concession underway. A pipeline built for the next three, across government,
-          private, and our own ground.
-        </p>
       </section>
 
       <Reveal as="section" className="block">
@@ -46,7 +60,7 @@ export default async function DestinationsPage() {
               <div className="large">
                 ARA Farm
                 <br />
-                &amp; <span className="gold italicGold">Resort</span>
+                &amp; <span className="gold">Resort</span>
               </div>
               <p className="bodyTxt" style={{ marginTop: 22 }}>
                 {flagship?.summary ??
@@ -59,28 +73,14 @@ export default async function DestinationsPage() {
               </div>
             </div>
             <div className={styles.flagshipVisual}>
-              <svg viewBox="0 0 500 460" fill="none">
-                <defs>
-                  <linearGradient id="dGold" x1="0" y1="0" x2="500" y2="460">
-                    <stop offset="0%" stopColor="#f4dd9a" />
-                    <stop offset="45%" stopColor="#d9b45c" />
-                    <stop offset="100%" stopColor="#8a6a2a" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M250 30 C266 30 266 58 250 68 C234 78 234 100 250 110 L370 210 C392 228 358 264 340 246 L250 172 L160 246 C142 264 108 228 130 210 L250 110 C266 100 266 78 250 68 C234 58 234 30 250 30 Z"
-                  stroke="url(#dGold)"
-                  strokeWidth="2.4"
-                  fill="none"
-                />
-                <path
-                  d="M250 148 L318 210 L250 272 L182 210 Z"
-                  stroke="url(#dGold)"
-                  strokeWidth="1.8"
-                  fill="none"
-                  opacity="0.8"
-                />
-              </svg>
+              <Image
+                src={conceptImage("ara-farm-hero")}
+                alt="Aerial concept render of ARA Farm & Resort at golden hour"
+                fill
+                className={styles.flagshipVisualImage}
+                sizes="(max-width: 900px) 100vw, 50vw"
+              />
+              <span className={styles.captionSm}>Concept render</span>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ export default async function DestinationsPage() {
         </div>
       </Reveal>
 
-      <Reveal as="section" className="block">
+      <Reveal as="section" className="block sectionLight">
         <div className="wrap">
           <div className="eyebrow eyebrowCenter">Destination Categories</div>
           <div className="large" style={{ textAlign: "center", marginTop: 22 }}>
@@ -126,6 +126,7 @@ export default async function DestinationsPage() {
             <StoryCard
               title="Theme & Adventure Parks"
               description="Full-scale destinations built around a signature attraction."
+              image={conceptImage("category-theme-park")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <path d="M20 6c6 8-2 12 0 18M20 6c-6 8 2 12 0 18M8 30h24" />
@@ -136,6 +137,7 @@ export default async function DestinationsPage() {
             <StoryCard
               title="Water Parks & Splash Zones"
               description="Scaled water experiences, from splash zones to full parks."
+              image={conceptImage("category-water-park")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <path d="M6 26c3-4 6 4 9 0s6 4 9 0 6 4 9 0M12 10c4 6-2 10 4 16" />
@@ -145,6 +147,7 @@ export default async function DestinationsPage() {
             <StoryCard
               title="Family Entertainment"
               description="Indoor and outdoor centers built for repeat visits."
+              image={conceptImage("category-family-entertainment")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <path d="M8 32V16l12-8 12 8v16" />
@@ -155,6 +158,7 @@ export default async function DestinationsPage() {
             <StoryCard
               title="Canopy Glamping & Eco-Retreats"
               description="Elevated stays set into the landscape they overlook."
+              image={conceptImage("canopy-glamping")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <path d="M20 8l10 10-10 10-10-10z" />
@@ -167,6 +171,7 @@ export default async function DestinationsPage() {
               description="Working land turned into the destination itself."
               href="/locations/ara-farm-resort"
               linkLabel="View ARA Farm & Resort"
+              image={conceptImage("category-farm-agritourism")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <path d="M20 6c-8 4-8 12-8 12s0 8 8 12c8-4 8-12 8-12s0-8-8-12z" />
@@ -176,6 +181,7 @@ export default async function DestinationsPage() {
             <StoryCard
               title="Festivals & Events"
               description="Recurring gatherings that anchor a destination's calendar."
+              image={conceptImage("category-festival")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <path d="M20 4l3.6 8 8.8.9-6.6 6 1.8 8.6L20 23.5l-7.6 4L14.2 19l-6.6-6 8.8-.9z" />
@@ -192,7 +198,7 @@ export default async function DestinationsPage() {
           <div className="large" style={{ marginTop: 22 }}>
             Rooted in Nigeria.
             <br />
-            Built for <span className="gold italicGold">wherever ground calls.</span>
+            Built for <span className="gold">wherever ground calls.</span>
           </div>
           <div className={styles.mapWrap}>
             <svg viewBox="0 0 400 420" fill="none">
@@ -203,7 +209,7 @@ export default async function DestinationsPage() {
                 opacity="0.55"
               />
               <circle cx="150" cy="150" r="5" fill="#d9b45c" />
-              <text x="162" y="154" fill="#f4ede0" fontSize="12" fontFamily="var(--font-jost), sans-serif" opacity="0.85">
+              <text x="162" y="154" fill="#f4ede0" fontSize="12" fontFamily="var(--font-inter), sans-serif" opacity="0.85">
                 Abeokuta, Nigeria
               </text>
             </svg>

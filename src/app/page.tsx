@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -7,6 +8,7 @@ import ContactForm from "@/components/ContactForm";
 import PhaseTabs from "@/components/PhaseTabs";
 import StoryCard from "@/components/StoryCard";
 import { getDestination, getJournalPosts, DESTINATION_STATUS_LABEL } from "@/lib/supabase";
+import { conceptImage } from "@/lib/images";
 import styles from "./page.module.css";
 
 export default async function HomePage() {
@@ -22,70 +24,42 @@ export default async function HomePage() {
 
       {/* HERO */}
       <section className={styles.hero}>
-        <div className="wrap">
+        <Image
+          src={conceptImage("home-hero")}
+          alt="Aerial twilight view of an AURUM ELYRIQ resort destination, lagoon pool and lit pathways through palm canopy"
+          fill
+          priority
+          className={styles.heroImage}
+          sizes="100vw"
+        />
+        <div className={styles.heroScrim} />
+        <span className={styles.conceptBadge}>Concept render</span>
+
+        <div className={`wrap ${styles.heroInner}`}>
           <div className="eyebrow">Destination Development</div>
-
-          <div className={styles.gateWrap}>
-            <div className={styles.gateGlow} />
-            <svg viewBox="0 0 500 460" fill="none">
-              <defs>
-                <linearGradient id="heroGateGold" x1="0" y1="0" x2="500" y2="460">
-                  <stop offset="0%" stopColor="#f4dd9a" />
-                  <stop offset="45%" stopColor="#d9b45c" />
-                  <stop offset="100%" stopColor="#8a6a2a" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M250 30 C266 30 266 58 250 68 C234 78 234 100 250 110 L370 210 C392 228 358 264 340 246 L250 172 L160 246 C142 264 108 228 130 210 L250 110 C266 100 266 78 250 68 C234 58 234 30 250 30 Z"
-                stroke="url(#heroGateGold)"
-                strokeWidth="2.6"
-                fill="none"
-              />
-              <path
-                d="M250 148 L318 210 L250 272 L182 210 Z"
-                stroke="url(#heroGateGold)"
-                strokeWidth="2"
-                fill="none"
-                opacity="0.85"
-              />
-              <path
-                d="M250 182 L286 210 L250 238 L214 210 Z"
-                stroke="url(#heroGateGold)"
-                strokeWidth="1.6"
-                fill="none"
-                opacity="0.6"
-              />
-              <line x1="20" y1="300" x2="130" y2="246" stroke="url(#heroGateGold)" strokeWidth="1" opacity="0.35" />
-              <line x1="480" y1="300" x2="370" y2="246" stroke="url(#heroGateGold)" strokeWidth="1" opacity="0.35" />
-              <line x1="20" y1="300" x2="480" y2="300" stroke="url(#heroGateGold)" strokeWidth="1" opacity="0.22" />
-            </svg>
-          </div>
-
-          <div className={styles.headlineBlock}>
-            <h1>
-              Every destination
-              <br />
-              begins at the <span className="gold italicGold">gate</span>
-            </h1>
-            <p className={`bodyTxt ${styles.sub}`}>
-              AURUM ELYRIQ conceives, finances, and operates entertainment, leisure, and relaxation
-              destinations for governments, landowners, and our own portfolio — built so the
-              experience begins the moment you arrive, not the moment you reach the ride.
-            </p>
-            <div className={styles.heroActions}>
-              <Link href="#flagship" className="btn btnGoldFill">
-                View Our Ventures
-              </Link>
-              <Link href="#contact" className="btn btnGhost">
-                Partner With Us
-              </Link>
-            </div>
+          <h1 className={styles.heroHeading}>
+            Every destination
+            <br />
+            begins at the <span className="gold">gate</span>
+          </h1>
+          <p className={`bodyTxt ${styles.sub}`}>
+            AURUM ELYRIQ conceives, finances, and operates entertainment, leisure, and relaxation
+            destinations for governments, landowners, and our own portfolio — built so the
+            experience begins the moment you arrive, not the moment you reach the ride.
+          </p>
+          <div className={styles.heroActions}>
+            <Link href="#flagship" className="btn btnGoldFill">
+              View Our Ventures
+            </Link>
+            <Link href="#contact" className="btn btnGoldOutline">
+              Partner With Us
+            </Link>
           </div>
         </div>
       </section>
 
       {/* PILLARS */}
-      <section className={styles.pillarsSec}>
+      <section className={`${styles.pillarsSec} sectionLight`}>
         <div className={`wrap ${styles.pillars}`}>
           <div className={styles.pillar}>
             <span className={`${styles.mark} gold`}>I.</span>
@@ -215,22 +189,33 @@ export default async function HomePage() {
             The first chapter
           </div>
           <div className={styles.flagshipCard}>
-            <span className={styles.tag}>
-              {DESTINATION_STATUS_LABEL[flagship.status]}
-              {flagship.location ? ` · ${flagship.location}` : ""}
-            </span>
-            <div className="huge" style={{ fontSize: "clamp(32px,5.5vw,64px)" }}>
-              ARA FARM
-              <br />
-              &amp; <span className="gold italicGold">RESORT</span>
-            </div>
-            <p className="bodyTxt" style={{ marginLeft: "auto", marginRight: "auto" }}>
-              {flagship.summary}
-            </p>
-            <div style={{ marginTop: 36 }}>
-              <Link href={`/locations/${flagship.slug}`} className="btn btnGoldFill">
-                Explore {flagship.name}
-              </Link>
+            <Image
+              src={conceptImage("ara-farm-hero")}
+              alt="Aerial concept render of ARA Farm & Resort, plantation rows leading to guest pavilions and a lagoon-style pool"
+              fill
+              className={styles.flagshipImage}
+              sizes="100vw"
+            />
+            <div className={styles.flagshipScrim} />
+            <span className={styles.conceptBadgeInline}>Concept render</span>
+            <div className={styles.flagshipContent}>
+              <span className={styles.tag}>
+                {DESTINATION_STATUS_LABEL[flagship.status]}
+                {flagship.location ? ` · ${flagship.location}` : ""}
+              </span>
+              <div className="huge" style={{ fontSize: "clamp(30px,5vw,58px)" }}>
+                ARA FARM
+                <br />
+                &amp; <span className="gold">RESORT</span>
+              </div>
+              <p className="bodyTxt" style={{ marginLeft: "auto", marginRight: "auto" }}>
+                {flagship.summary}
+              </p>
+              <div style={{ marginTop: 36 }}>
+                <Link href={`/locations/${flagship.slug}`} className="btn btnGoldFill">
+                  Explore {flagship.name}
+                </Link>
+              </div>
             </div>
           </div>
         </Reveal>
@@ -238,7 +223,7 @@ export default async function HomePage() {
       )}
 
       {/* CAPABILITIES */}
-      <section className={styles.capabilities} id="capabilities">
+      <section className={`${styles.capabilities} sectionLight`} id="capabilities">
         <Reveal className="wrap">
           <div className="eyebrow eyebrowCenter">How We Build</div>
           <div className="large" style={{ textAlign: "center", marginTop: 20 }}>
@@ -254,6 +239,7 @@ export default async function HomePage() {
                   title: "Ground",
                   description:
                     "Site, land rights, and access — the reality a destination is built on. Every project begins with a concession or partnership that secures land access first.",
+                  image: conceptImage("ara-farm-hero"),
                 },
                 {
                   key: "architecture",
@@ -262,6 +248,7 @@ export default async function HomePage() {
                   title: "Architecture",
                   description:
                     "Master plan and brand, carried from the gate through every attraction, so the guest experience never breaks from one zone to the next.",
+                  image: conceptImage("vision-editorial"),
                 },
                 {
                   key: "trust",
@@ -270,6 +257,7 @@ export default async function HomePage() {
                   title: "Trust",
                   description:
                     "Financing and partnership structure — who brings what, and how it's shared, governed by exit and renegotiation clauses rather than rigid fixed terms.",
+                  image: conceptImage("harvest-table"),
                   cta: { label: "Read Our Investment Philosophy", href: "/investors" },
                 },
                 {
@@ -279,6 +267,7 @@ export default async function HomePage() {
                   title: "Experience",
                   description:
                     "Build and operate, with the guest experience as the measure of it all — brought to life with a dedicated hospitality operator where five-star service is required.",
+                  image: conceptImage("canopy-glamping"),
                 },
               ]}
             />
@@ -304,6 +293,7 @@ export default async function HomePage() {
             <StoryCard
               title="Theme & Adventure Parks"
               description="Full-scale destinations built around a signature attraction."
+              image={conceptImage("category-theme-park")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.3">
                   <path d="M20 6c6 8-2 12 0 18M20 6c-6 8 2 12 0 18M8 30h24" />
@@ -314,6 +304,7 @@ export default async function HomePage() {
             <StoryCard
               title="Water Parks"
               description="Scaled water experiences, from splash zones to full parks."
+              image={conceptImage("category-water-park")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.3">
                   <path d="M6 26c3-4 6 4 9 0s6 4 9 0 6 4 9 0M12 10c4 6-2 10 4 16" />
@@ -323,6 +314,7 @@ export default async function HomePage() {
             <StoryCard
               title="Family Entertainment"
               description="Indoor and outdoor centers built for repeat visits."
+              image={conceptImage("category-family-entertainment")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.3">
                   <path d="M8 32V16l12-8 12 8v16" />
@@ -333,6 +325,7 @@ export default async function HomePage() {
             <StoryCard
               title="Canopy Glamping"
               description="Elevated stays set into the landscape they overlook."
+              image={conceptImage("canopy-glamping")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.3">
                   <path d="M20 8l10 10-10 10-10-10z" />
@@ -345,6 +338,7 @@ export default async function HomePage() {
               description="Working land turned into the destination itself."
               href="/locations/ara-farm-resort"
               linkLabel="View ARA Farm & Resort"
+              image={conceptImage("category-farm-agritourism")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.3">
                   <path d="M20 6c-8 4-8 12-8 12s0 8 8 12c8-4 8-12 8-12s0-8-8-12z" />
@@ -354,6 +348,7 @@ export default async function HomePage() {
             <StoryCard
               title="Festivals & Events"
               description="Recurring gatherings that anchor a destination's calendar."
+              image={conceptImage("category-festival")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.3">
                   <path d="M20 4l3.6 8 8.8.9-6.6 6 1.8 8.6L20 23.5l-7.6 4L14.2 19l-6.6-6 8.8-.9z" />

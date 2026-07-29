@@ -1,14 +1,15 @@
 .card {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--line);
-  border-radius: 2px;
+  border: 1px solid var(--surface-line);
+  border-radius: 6px;
   overflow: hidden;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.35s var(--ease);
   height: 100%;
 }
 .card:hover {
   border-color: var(--gold-1);
+  transform: translateY(-4px);
 }
 
 .visual {
@@ -18,7 +19,15 @@
   align-items: center;
   justify-content: center;
   background: radial-gradient(ellipse 80% 70% at 50% 30%, rgba(217, 180, 92, 0.08), transparent 70%);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--surface-line);
+  overflow: hidden;
+}
+.visualImage {
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.card:hover .visualImage {
+  transform: scale(1.06);
 }
 .visual svg {
   width: 34%;
@@ -35,7 +44,7 @@
   color: var(--ivory-faint);
   border: 1px solid var(--line);
   padding: 4px 9px;
-  border-radius: 2px;
+  border-radius: 999px;
   background: rgba(8, 7, 6, 0.6);
 }
 
@@ -47,16 +56,16 @@
 }
 .body h4 {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 21px;
+  font-weight: 800;
+  font-size: 19px;
   margin: 0 0 10px;
-  color: var(--ivory);
+  color: var(--fg);
 }
 .body p {
   font-size: 13px;
   line-height: 1.75;
-  color: var(--ivory-dim);
-  font-weight: 300;
+  color: var(--fg-dim);
+  font-weight: 400;
   margin: 0;
   flex: 1;
 }
@@ -65,6 +74,7 @@
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  font-weight: 700;
   color: var(--gold-2);
   display: inline-flex;
   align-items: center;

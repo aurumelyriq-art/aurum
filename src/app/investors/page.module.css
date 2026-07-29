@@ -1,12 +1,56 @@
-.pHero {
-  padding-top: 28vh;
-  padding-bottom: 16vh;
+/* ================= HERO (full-bleed photo) ================= */
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
-.pHero :global(.huge) {
-  max-width: 900px;
+.heroImage {
+  object-fit: cover;
+  z-index: 0;
 }
-.pHero :global(.bodyTxt) {
-  margin-top: 28px;
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    100deg,
+    rgba(8, 7, 6, 0.92) 0%,
+    rgba(8, 7, 6, 0.72) 32%,
+    rgba(8, 7, 6, 0.32) 62%,
+    rgba(8, 7, 6, 0.15) 100%
+  );
+}
+.conceptBadge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+  border: 1px solid var(--line);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(8, 7, 6, 0.5);
+}
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  padding-top: 12vh;
+  padding-bottom: 8vh;
+}
+.heroHeading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(34px, 5.6vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin-top: 22px;
 }
 
 .twoCol {
@@ -40,13 +84,15 @@
 .numItem::before {
   content: counter(item, decimal-leading-zero);
   font-family: var(--font-display);
-  font-size: 26px;
+  font-weight: 800;
+  font-size: 24px;
   color: var(--gold-2);
 }
 .numItem h3 {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 19px;
   margin: 0 0 10px;
   color: var(--ivory);
 }
@@ -54,7 +100,7 @@
   font-size: 13.5px;
   line-height: 1.85;
   color: var(--ivory-dim);
-  font-weight: 300;
+  font-weight: 400;
   margin: 0;
   max-width: 560px;
 }
@@ -73,16 +119,17 @@
 }
 .govCell h4 {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 21px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 17px;
   margin: 0 0 10px;
-  color: var(--ivory);
+  color: var(--fg);
 }
 .govCell p {
   font-size: 13px;
   line-height: 1.8;
-  color: var(--ivory-dim);
-  font-weight: 300;
+  color: var(--fg-dim);
+  font-weight: 400;
   margin: 0;
 }
 
@@ -95,7 +142,7 @@
 }
 .faqItem h4 {
   font-size: 14.5px;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--ivory);
   margin: 0 0 10px;
   letter-spacing: 0.01em;
@@ -104,7 +151,7 @@
   font-size: 13.5px;
   line-height: 1.85;
   color: var(--ivory-dim);
-  font-weight: 300;
+  font-weight: 400;
   margin: 0;
   max-width: 640px;
 }

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
+import { conceptImage } from "@/lib/images";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -16,20 +18,32 @@ export default function InvestorsPage() {
     <>
       <Header active="investors" ctaHref="#contact" ctaLabel="Talk to Us" />
 
-      <section className={`wrap ${styles.pHero}`}>
-        <div className="eyebrow">Investors</div>
-        <div className="huge" style={{ marginTop: 22 }}>
-          BUILDING
-          <br />
-          <span className="gold italicGold">LONG-TERM</span>
-          <br />
-          VALUE.
+      <section className={styles.hero}>
+        <Image
+          src={conceptImage("home-hero")}
+          alt="Aerial twilight view of an AURUM ELYRIQ resort destination"
+          fill
+          priority
+          className={styles.heroImage}
+          sizes="100vw"
+        />
+        <div className={styles.heroScrim} />
+        <span className={styles.conceptBadge}>Concept render</span>
+        <div className={`wrap ${styles.heroInner}`}>
+          <div className="eyebrow">Investors</div>
+          <div className={styles.heroHeading}>
+            BUILDING
+            <br />
+            <span className="gold">LONG-TERM</span>
+            <br />
+            VALUE.
+          </div>
+          <p className="bodyTxt" style={{ marginTop: 22 }}>
+            AURUM ELYRIQ sources capital globally to finance destinations that are financed, built,
+            and operated under a single disciplined structure — not to sell a projection, but to
+            build a track record.
+          </p>
         </div>
-        <p className="bodyTxt">
-          AURUM ELYRIQ sources capital globally to finance destinations that are financed, built,
-          and operated under a single disciplined structure — not to sell a projection, but to
-          build a track record.
-        </p>
       </section>
 
       <Reveal as="section" className="block">
@@ -99,7 +113,7 @@ export default function InvestorsPage() {
         </div>
       </Reveal>
 
-      <Reveal as="section" className="block">
+      <Reveal as="section" className="block sectionLight">
         <div className="wrap">
           <div className="eyebrow">Governance &amp; Risk</div>
           <div className={`lineGrid ${styles.govGrid}`}>

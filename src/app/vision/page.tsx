@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+import { conceptImage } from "@/lib/images";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -15,14 +17,26 @@ export default function VisionPage() {
     <>
       <Header active="vision" />
 
-      <section className={`wrap ${styles.pHero}`}>
-        <div className="eyebrow eyebrowCenter">Vision</div>
-        <div className="huge" style={{ marginTop: 26 }}>
-          THE FUTURE
-          <br />
-          DESERVES <span className="gold italicGold">BETTER</span>
-          <br />
-          DESTINATIONS.
+      <section className={styles.hero}>
+        <Image
+          src={conceptImage("category-farm-agritourism")}
+          alt="Working cocoa and oil palm plantation rows at golden hour"
+          fill
+          priority
+          className={styles.heroImage}
+          sizes="100vw"
+        />
+        <div className={styles.heroScrim} />
+        <span className={styles.conceptBadge}>Concept render</span>
+        <div className={`wrap ${styles.heroInner}`}>
+          <div className="eyebrow eyebrowCenter">Vision</div>
+          <div className={styles.heroHeading}>
+            THE FUTURE
+            <br />
+            DESERVES <span className="gold">BETTER</span>
+            <br />
+            DESTINATIONS.
+          </div>
         </div>
       </section>
 
@@ -72,6 +86,19 @@ export default function VisionPage() {
               <div className={styles.l}>Capital Sourcing — Loans &amp; Investment</div>
             </div>
           </div>
+        </div>
+      </Reveal>
+
+      <Reveal as="section" className={styles.editorialBreak}>
+        <div className={styles.editorialImage}>
+          <Image
+            src={conceptImage("vision-editorial")}
+            alt="Abstract sketch-to-render transition of a resort masterplan in gold linework"
+            fill
+            className={styles.editorialImageEl}
+            sizes="100vw"
+          />
+          <span className={styles.captionSm}>Concept render</span>
         </div>
       </Reveal>
 

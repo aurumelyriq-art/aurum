@@ -1,0 +1,142 @@
+[
+  {
+    "slug": "living-farm-trail",
+    "key": "images/living-farm-trail.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/living-farm-trail.jpg",
+    "prompt": "Wide dirt path through an organized cocoa and plantain plantation at golden hour, dappled light through canopy, a few wooden trail markers, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, no people, photorealistic",
+    "width": 1024,
+    "height": 1024,
+    "generatedAt": "2026-07-29T19:23:55.326Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "harvest-table",
+    "key": "images/harvest-table.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/harvest-table.jpg",
+    "prompt": "Long wooden communal dining table set outdoors under string lights at dusk, farm produce as centerpiece, warm ambient glow, African plantation setting in background, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, photorealistic, no people",
+    "width": 1024,
+    "height": 1024,
+    "generatedAt": "2026-07-29T19:23:57.296Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "waterfront-adventure",
+    "key": "images/waterfront-adventure.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/waterfront-adventure.jpg",
+    "prompt": "Calm lagoon-style waterfront at a resort destination, kayaks resting on a wooden dock, golden hour light, lush tropical tree line, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, photorealistic",
+    "width": 1024,
+    "height": 1024,
+    "generatedAt": "2026-07-29T19:23:59.373Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "kids-splash-zone",
+    "key": "images/kids-splash-zone.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/kids-splash-zone.jpg",
+    "prompt": "Bright playful outdoor water-play area with small slides and splash features, empty of people, morning light, lush landscaping, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, photorealistic architectural render",
+    "width": 1024,
+    "height": 1024,
+    "generatedAt": "2026-07-29T19:24:02.095Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "canopy-glamping",
+    "key": "images/canopy-glamping.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/canopy-glamping.jpg",
+    "prompt": "Elevated glamping tents built into tree canopy overlooking a plantation valley at sunset, warm interior lighting glowing through canvas, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, photorealistic",
+    "width": 1024,
+    "height": 1024,
+    "generatedAt": "2026-07-29T19:24:04.111Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "festival-grounds",
+    "key": "images/festival-grounds.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/festival-grounds.jpg",
+    "prompt": "Open-air festival lawn at dusk with string lighting, small stage structure, string-lit trees, empty of crowd, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, warm inviting atmosphere, photorealistic",
+    "width": 1024,
+    "height": 1024,
+    "generatedAt": "2026-07-29T19:24:07.100Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "category-theme-park",
+    "key": "images/category-theme-park.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/category-theme-park.jpg",
+    "prompt": "Elegant theme and adventure park attraction silhouette at golden hour, roller coaster structure and ride towers, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, cinematic, photorealistic, no people, no text",
+    "width": 1024,
+    "height": 1024,
+    "generatedAt": "2026-07-29T19:24:08.956Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "category-water-park",
+    "key": "images/category-water-park.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/category-water-park.jpg",
+    "prompt": "Luxury water park with slides and lagoon pools at golden hour, lush landscaping, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, cinematic, photorealistic, no people, no text",
+    "width": 1024,
+    "height": 1024,
+    "generatedAt": "2026-07-29T19:24:11.695Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "category-family-entertainment",
+    "key": "images/category-family-entertainment.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/category-family-entertainment.jpg",
+    "prompt": "Warm inviting family entertainment center exterior at dusk, glowing windows, modern architecture, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, cinematic, photorealistic, no people, no text",
+    "width": 1024,
+    "height": 1024,
+    "generatedAt": "2026-07-29T19:24:13.643Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "category-farm-agritourism",
+    "key": "images/category-farm-agritourism.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/category-farm-agritourism.jpg",
+    "prompt": "Working cocoa and oil palm plantation rows at golden hour with a distant farmhouse, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, cinematic, photorealistic, no people, no text",
+    "width": 1024,
+    "height": 1024,
+    "generatedAt": "2026-07-29T19:24:15.904Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "category-festival",
+    "key": "images/category-festival.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/category-festival.jpg",
+    "prompt": "Elegant outdoor festival grounds with string lighting and a stage at dusk, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, cinematic, photorealistic, no people, no text",
+    "width": 1024,
+    "height": 1024,
+    "generatedAt": "2026-07-29T19:24:18.523Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "home-hero",
+    "key": "images/home-hero.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/home-hero.jpg",
+    "prompt": "Cinematic aerial twilight view of a luxury African resort destination built into a working plantation landscape, infinity lagoon reflecting golden-hour light, palm and cocoa tree canopy, soft architectural lighting along pathways, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, ultra-wide, photorealistic, no people in frame, no text or logos",
+    "width": 1600,
+    "height": 896,
+    "generatedAt": "2026-07-29T19:27:59.454Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "ara-farm-hero",
+    "key": "images/ara-farm-hero.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/ara-farm-hero.jpg",
+    "prompt": "Golden-hour aerial concept render of a farm-resort destination in Nigeria, cocoa and oil palm plantation rows leading to a cluster of low-rise guest pavilions and a lagoon-style pool, canopy glamping tents visible in tree line, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, photorealistic architectural render, no text",
+    "width": 1600,
+    "height": 896,
+    "generatedAt": "2026-07-29T19:28:03.481Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  },
+  {
+    "slug": "vision-editorial",
+    "key": "images/vision-editorial.jpg",
+    "url": "https://pub-267b8fd70c0a4de6857e10cb2e8678f7.r2.dev/images/vision-editorial.jpg",
+    "prompt": "Abstract architectural sketch-to-render transition, half hand-drawn gold linework, half photorealistic render, of a resort masterplan, on dark charcoal background, warm gold (#d9b45c) and deep charcoal black (#080706) color grading, ivory highlights, no text",
+    "width": 1200,
+    "height": 896,
+    "generatedAt": "2026-07-29T19:28:07.995Z",
+    "model": "@cf/black-forest-labs/flux-1-schnell"
+  }
+]

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StoryCard from "@/components/StoryCard";
 import PhaseTabs from "@/components/PhaseTabs";
 import { getSupabaseClient, getDestination } from "@/lib/supabase";
+import { conceptImage } from "@/lib/images";
 import styles from "./page.module.css";
 
 export async function generateStaticParams() {
@@ -43,16 +45,28 @@ export default async function LocationPage({
 
       {/* BANNER */}
       <section className={styles.banner}>
-        <div className="eyebrow">Location — {destination.location}</div>
-        <div className={styles.status}>
-          <span className={styles.dot} /> In Development · Private Concession
+        <Image
+          src={conceptImage("ara-farm-hero")}
+          alt={`Aerial concept render of ${destination.name}`}
+          fill
+          priority
+          className={styles.bannerImage}
+          sizes="100vw"
+        />
+        <div className={styles.bannerScrim} />
+        <span className={styles.conceptBadge}>Concept render</span>
+        <div className={styles.bannerInner}>
+          <div className="eyebrow">Location — {destination.location}</div>
+          <div className={styles.status}>
+            <span className={styles.dot} /> In Development · Private Concession
+          </div>
+          <h1>
+            {destination.name},
+            <br />
+            in partnership with <span className="gold">{destination.partner_name}</span>
+          </h1>
+          <p className={styles.sub}>{destination.summary}</p>
         </div>
-        <h1>
-          {destination.name},
-          <br />
-          in partnership with <span className="gold">{destination.partner_name}</span>
-        </h1>
-        <p className={styles.sub}>{destination.summary}</p>
       </section>
 
       {/* FACTS */}
@@ -125,6 +139,7 @@ export default async function LocationPage({
             <StoryCard
               title="Living Farm Trail"
               description="A guided walking route through cocoa, oil palm, and plantain, where the harvest itself is the storytelling."
+              image={conceptImage("living-farm-trail")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <path d="M20 6c-8 4-8 12-8 12s0 8 8 12c8-4 8-12 8-12s0-8-8-12z" />
@@ -134,6 +149,7 @@ export default async function LocationPage({
             <StoryCard
               title="Harvest Table"
               description="A nightly dining ritual built around what came off the farm that day."
+              image={conceptImage("harvest-table")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <rect x="8" y="18" width="24" height="4" />
@@ -144,6 +160,7 @@ export default async function LocationPage({
             <StoryCard
               title="Waterfront Adventure"
               description="Activity along the water's edge, scaled to the site's natural features."
+              image={conceptImage("waterfront-adventure")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <path d="M6 26c3-4 6 4 9 0s6 4 9 0 6 4 9 0M12 10c4 6-2 10 4 16" />
@@ -153,6 +170,7 @@ export default async function LocationPage({
             <StoryCard
               title="Kids' Splash Zone"
               description="A fun-and-splash zone designed to scale into a full water park over time."
+              image={conceptImage("kids-splash-zone")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <path d="M6 26c3-4 6 4 9 0s6 4 9 0 6 4 9 0M12 10c4 6-2 10 4 16" />
@@ -163,6 +181,7 @@ export default async function LocationPage({
             <StoryCard
               title="Canopy Glamping"
               description="Elevated stays set into the tree line, framing the plantation below."
+              image={conceptImage("canopy-glamping")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <path d="M20 8l10 10-10 10-10-10z" />
@@ -173,6 +192,7 @@ export default async function LocationPage({
             <StoryCard
               title="Recurring Festival"
               description="An annual gathering that turns the harvest calendar into a destination event."
+              image={conceptImage("festival-grounds")}
               icon={
                 <svg viewBox="0 0 40 40" fill="none" stroke="#d9b45c" strokeWidth="1.4">
                   <path d="M20 4l3.6 8 8.8.9-6.6 6 1.8 8.6L20 23.5l-7.6 4L14.2 19l-6.6-6 8.8-.9z" />
@@ -200,6 +220,7 @@ export default async function LocationPage({
                   title: "Ground",
                   description:
                     "Site data requested from LORALAND — topography, access, plantation boundaries — now informing the master plan.",
+                  image: conceptImage("living-farm-trail"),
                 },
                 {
                   key: "architecture",
@@ -208,6 +229,7 @@ export default async function LocationPage({
                   title: "Architecture",
                   description:
                     "A brand identity felt from the entrance gate, extending through the farm trail to the Harvest Table.",
+                  image: conceptImage("vision-editorial"),
                 },
                 {
                   key: "trust",
@@ -216,6 +238,7 @@ export default async function LocationPage({
                   title: "Trust",
                   description:
                     "Concession terms with LORALAND, financing sourced globally, and technical partners under evaluation for water park delivery.",
+                  image: conceptImage("harvest-table"),
                 },
                 {
                   key: "experience",
@@ -224,6 +247,7 @@ export default async function LocationPage({
                   title: "Experience",
                   description:
                     "A five-star hospitality operator to be brought in, delivering guest service on AURUM ELYRIQ's built facilities.",
+                  image: conceptImage("canopy-glamping"),
                 },
               ]}
             />

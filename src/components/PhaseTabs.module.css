@@ -1,7 +1,7 @@
 .tabs {
   display: flex;
   gap: clamp(24px, 5vw, 64px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--surface-line);
   padding-bottom: 24px;
   flex-wrap: wrap;
 }
@@ -13,38 +13,40 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  color: var(--ivory-faint);
+  color: var(--fg-faint);
   transition: color 0.3s ease;
 }
 .tab:hover {
-  color: var(--ivory-dim);
+  color: var(--fg-dim);
 }
 .tab.active {
-  color: var(--ivory);
+  color: var(--fg);
 }
 .letter {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   flex-shrink: 0;
   border-radius: 50%;
-  border: 1px solid var(--line);
+  border: 1px solid var(--surface-line);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 20px;
-  color: var(--ivory-faint);
-  transition: border-color 0.3s ease, color 0.3s ease;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--fg-faint);
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
 }
 .tab.active .letter {
   border-color: var(--gold-2);
-  color: var(--gold-3);
+  background: var(--gold-2);
+  color: var(--ink);
 }
 .label {
   font-size: 11.5px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .panel {
@@ -64,13 +66,20 @@
 .visual {
   position: relative;
   aspect-ratio: 4 / 3;
-  border: 1px solid var(--line);
-  border-radius: 2px;
+  border: 1px solid var(--surface-line);
+  border-radius: 6px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   background: radial-gradient(ellipse 80% 70% at 50% 30%, rgba(217, 180, 92, 0.1), transparent 70%);
+}
+.visualImage {
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.visual:hover .visualImage {
+  transform: scale(1.04);
 }
 .visual svg {
   width: 40%;
@@ -87,22 +96,23 @@
   color: var(--ivory-faint);
   border: 1px solid var(--line);
   padding: 5px 10px;
-  border-radius: 2px;
+  border-radius: 999px;
   background: rgba(8, 7, 6, 0.6);
 }
 
 .copy h3 {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(22px, 2.4vw, 30px);
   margin: 0 0 16px;
-  color: var(--ivory);
+  color: var(--fg);
 }
 .copy p {
   font-size: 14px;
   line-height: 1.85;
-  color: var(--ivory-dim);
-  font-weight: 300;
+  color: var(--fg-dim);
+  font-weight: 400;
   margin: 0 0 28px;
   max-width: 440px;
 }

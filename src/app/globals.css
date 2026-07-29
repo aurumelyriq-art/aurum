@@ -11,9 +11,24 @@
   --line: rgba(244, 237, 224, 0.12);
   --ease: cubic-bezier(0.19, 1, 0.22, 1);
 
-  --font-display: var(--font-cormorant), serif;
-  --font-display-alt: var(--font-cormorant-garamond), serif;
-  --font-body: var(--font-jost), sans-serif;
+  /* light-section counterparts */
+  --paper: #f4ede0;
+  --paper-ink: #201c14;
+  --paper-dim: #5c5645;
+  --paper-line: rgba(32, 28, 20, 0.12);
+
+  /* contextual tokens — components read these, .sectionLight flips them */
+  --surface: var(--ink);
+  --surface-2: var(--ink-2);
+  --surface-3: var(--ink-3);
+  --surface-line: var(--line);
+  --fg: var(--ivory);
+  --fg-dim: var(--ivory-dim);
+  --fg-faint: var(--ivory-faint);
+
+  --font-display: var(--font-archivo), sans-serif;
+  --font-display-alt: var(--font-archivo), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
 }
 
 * {
@@ -34,7 +49,7 @@ body {
   background: var(--ink);
   color: var(--ivory);
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -58,7 +73,7 @@ a {
 }
 
 .italicGold {
-  font-style: italic;
+  font-style: normal;
 }
 
 /* ---------- container ---------- */
@@ -72,33 +87,36 @@ a {
 /* ---------- type scale: huge / large / body — nothing else ---------- */
 .huge {
   font-family: var(--font-display);
-  font-weight: 300;
-  font-size: clamp(46px, 8.4vw, 128px);
-  line-height: 0.98;
+  font-weight: 800;
+  font-size: clamp(40px, 7.4vw, 108px);
+  line-height: 0.96;
   letter-spacing: -0.01em;
+  text-transform: uppercase;
   margin: 0;
 }
 
 .large {
   font-family: var(--font-display);
-  font-weight: 300;
-  font-size: clamp(30px, 3.6vw, 52px);
-  line-height: 1.12;
+  font-weight: 700;
+  font-size: clamp(26px, 3.2vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.005em;
   margin: 0;
 }
 
 .bodyTxt {
   font-size: 15.5px;
-  line-height: 1.85;
+  line-height: 1.8;
   color: var(--ivory-dim);
-  font-weight: 300;
+  font-weight: 400;
   max-width: 480px;
 }
 
 .eyebrow {
   font-size: 11px;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
+  font-weight: 600;
   color: var(--gold-2);
   display: flex;
   align-items: center;
@@ -107,11 +125,34 @@ a {
 .eyebrow::before {
   content: "";
   width: 30px;
-  height: 1px;
+  height: 2px;
   background: var(--gold-1);
 }
 .eyebrowCenter {
   justify-content: center;
+}
+
+/* ---------- light (paper) section variant, mirrors the alternating
+   dark/light section rhythm — flips the contextual tokens so every
+   component (buttons, grids, cards) adapts automatically ---------- */
+.sectionLight {
+  --surface: var(--paper);
+  --surface-2: #ece3d2;
+  --surface-3: #e4d9c4;
+  --surface-line: var(--paper-line);
+  --fg: var(--paper-ink);
+  --fg-dim: var(--paper-dim);
+  --fg-faint: var(--paper-dim);
+  background: var(--surface);
+  color: var(--fg);
+  border-top: none !important;
+}
+.sectionLight .bodyTxt {
+  color: var(--fg-dim);
+}
+.sectionLight .huge,
+.sectionLight .large {
+  color: var(--fg);
 }
 
 /* ---------- reveal-on-scroll ---------- */
@@ -132,26 +173,27 @@ a {
   }
 }
 
-/* ---------- three button styles, only ---------- */
+/* ---------- three button styles, only — fully-rounded pill ---------- */
 .btn {
   display: inline-block;
-  padding: 15px 32px;
-  font-size: 11.5px;
-  letter-spacing: 0.14em;
+  padding: 15px 34px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  border-radius: 2px;
-  transition: all 0.4s var(--ease);
-  font-weight: 500;
+  border-radius: 999px;
+  transition: all 0.35s var(--ease);
+  font-weight: 700;
   border: none;
   cursor: pointer;
 }
 .btnGoldFill {
-  background: linear-gradient(120deg, var(--gold-1), var(--gold-2) 60%, var(--gold-3));
+  background: var(--gold-2);
   color: var(--ink);
 }
 .btnGoldFill:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 34px rgba(217, 180, 92, 0.22);
+  box-shadow: 0 12px 34px rgba(217, 180, 92, 0.28);
+  background: var(--gold-3);
 }
 .btnGoldOutline {
   border: 1px solid var(--gold-2);
@@ -163,16 +205,16 @@ a {
   color: var(--ink);
 }
 .btnGhost {
-  border: 1px solid var(--line);
-  color: var(--ivory-dim);
+  border: 1px solid var(--surface-line);
+  color: var(--fg-dim);
   background: transparent;
 }
 .btnGhost:hover {
-  border-color: var(--ivory-dim);
-  color: var(--ivory);
+  border-color: var(--fg);
+  color: var(--fg);
 }
 .btnSm {
-  padding: 11px 24px;
+  padding: 11px 26px;
   font-size: 11px;
 }
 
@@ -180,11 +222,11 @@ a {
 .lineGrid {
   display: grid;
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  background: var(--surface-line);
+  border: 1px solid var(--surface-line);
 }
 .lineCell {
-  background: var(--ink);
+  background: var(--surface);
 }
 
 /* ---------- section rhythm ---------- */
