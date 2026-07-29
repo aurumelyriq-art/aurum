@@ -1,0 +1,75 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+  height: 100%;
+}
+.card:hover {
+  border-color: var(--gold-1);
+}
+
+.visual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse 80% 70% at 50% 30%, rgba(217, 180, 92, 0.08), transparent 70%);
+  border-bottom: 1px solid var(--line);
+}
+.visual svg {
+  width: 34%;
+  height: 34%;
+  opacity: 0.45;
+}
+.caption {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+  border: 1px solid var(--line);
+  padding: 4px 9px;
+  border-radius: 2px;
+  background: rgba(8, 7, 6, 0.6);
+}
+
+.body {
+  padding: 26px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.body h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 21px;
+  margin: 0 0 10px;
+  color: var(--ivory);
+}
+.body p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--ivory-dim);
+  font-weight: 300;
+  margin: 0;
+  flex: 1;
+}
+.link {
+  margin-top: 18px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.card:hover .link {
+  color: var(--gold-3);
+}

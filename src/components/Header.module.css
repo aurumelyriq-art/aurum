@@ -1,0 +1,99 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px clamp(24px, 6vw, 80px);
+  background: rgba(8, 7, 6, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* animated (home) variant: starts transparent + invisible, fades in, then blurs on scroll */
+.animated {
+  padding: 30px clamp(24px, 6vw, 80px);
+  background: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+  opacity: 0;
+  transition: background 0.5s ease, backdrop-filter 0.5s ease, padding 0.5s ease,
+    border-color 0.5s ease, opacity 1.4s var(--ease);
+}
+.animated.shown {
+  opacity: 1;
+}
+.animated.scrolled {
+  background: rgba(8, 7, 6, 0.82);
+  backdrop-filter: blur(14px);
+  padding: 20px clamp(24px, 6vw, 80px);
+  border-color: var(--line);
+}
+
+/* sticky (locations) variant: gradient fade, not a hard blur bar */
+.sticky {
+  position: sticky;
+  padding: 26px clamp(24px, 6vw, 72px);
+  max-width: 1400px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, rgba(12, 11, 9, 0.92), rgba(12, 11, 9, 0));
+  backdrop-filter: blur(6px);
+  border-bottom: none;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 0.3em;
+  font-family: var(--font-display-alt);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.links {
+  display: flex;
+  gap: 34px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+}
+.links a {
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+.links a:hover,
+.links a.active {
+  color: var(--gold-3);
+}
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--gold-2);
+  transition: width 0.35s ease;
+}
+.links a:hover::after,
+.links a.active::after {
+  width: 100%;
+}
+@media (max-width: 980px) {
+  .links {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated {
+    opacity: 1;
+    transition: none;
+  }
+}

@@ -1,0 +1,119 @@
+.pHero {
+  padding-top: 28vh;
+  padding-bottom: 16vh;
+}
+.pHero :global(.huge) {
+  max-width: 900px;
+}
+.pHero :global(.bodyTxt) {
+  margin-top: 28px;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 70px;
+  align-items: start;
+}
+@media (max-width: 880px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+.numList {
+  counter-reset: item;
+  margin-top: 20px;
+}
+.numItem {
+  counter-increment: item;
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+}
+.numItem:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.numItem::before {
+  content: counter(item, decimal-leading-zero);
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--gold-2);
+}
+.numItem h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  margin: 0 0 10px;
+  color: var(--ivory);
+}
+.numItem p {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--ivory-dim);
+  font-weight: 300;
+  margin: 0;
+  max-width: 560px;
+}
+
+.govGrid {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 20px;
+}
+@media (max-width: 780px) {
+  .govGrid {
+    grid-template-columns: 1fr;
+  }
+}
+.govCell {
+  padding: 36px 32px;
+}
+.govCell h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 21px;
+  margin: 0 0 10px;
+  color: var(--ivory);
+}
+.govCell p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ivory-dim);
+  font-weight: 300;
+  margin: 0;
+}
+
+.faqItem {
+  border-top: 1px solid var(--line);
+  padding: 26px 0;
+}
+.faqItem:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.faqItem h4 {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ivory);
+  margin: 0 0 10px;
+  letter-spacing: 0.01em;
+}
+.faqItem p {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--ivory-dim);
+  font-weight: 300;
+  margin: 0;
+  max-width: 640px;
+}
+
+.contactBand {
+  text-align: center;
+  padding: 18vh 0;
+}
+.contactBand :global(.large) {
+  max-width: 760px;
+  margin: 0 auto 40px;
+}

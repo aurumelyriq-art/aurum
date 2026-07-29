@@ -1,0 +1,89 @@
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 50px 0 34px;
+}
+.footerHome {
+  padding: 60px 0 36px;
+}
+
+.simpleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.foundBrand,
+.brand {
+  font-family: var(--font-display-alt);
+  letter-spacing: 0.24em;
+  font-size: 13px;
+  color: var(--ivory-dim);
+}
+
+.simpleLinks {
+  display: flex;
+  gap: 30px;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+  flex-wrap: wrap;
+}
+.simpleLinks a:hover {
+  color: var(--gold-3);
+}
+
+.copy {
+  margin-top: 30px;
+  font-size: 11px;
+  color: var(--ivory-faint);
+  letter-spacing: 0.04em;
+}
+
+/* home variant */
+.footTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+}
+.footBrand {
+  font-family: var(--font-display-alt);
+  letter-spacing: 0.26em;
+  font-size: 14px;
+  color: var(--ivory-dim);
+}
+.dividerMini {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-1), transparent);
+  margin-top: 16px;
+}
+.footLinks {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 40px 60px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-faint);
+}
+.footLinks a:hover {
+  color: var(--gold-3);
+}
+.footBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 26px;
+  font-size: 10.5px;
+  color: var(--ivory-faint);
+  letter-spacing: 0.04em;
+}
