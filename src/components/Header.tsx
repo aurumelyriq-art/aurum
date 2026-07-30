@@ -28,6 +28,7 @@ export default function Header({
 }) {
   const [shown, setShown] = useState(variant !== "animated");
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (variant !== "animated") return;
@@ -39,6 +40,20 @@ export default function Header({
       window.removeEventListener("scroll", onScroll);
     };
   }, [variant]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [menuOpen]);
 
   const headerClass = [
     styles.header,
@@ -52,7 +67,7 @@ export default function Header({
 
   return (
     <header className={headerClass}>
-      <Link href="/" className={styles.brand}>
+      <Link href="/" className={styles.brand} onClick={() => setMenuOpen(false)}>
         <GateMark size={22} />
         AURUM&nbsp;ELYRIQ
       </Link>
@@ -67,9 +82,45 @@ export default function Header({
           </Link>
         ))}
       </nav>
-      <Link href={ctaHref} className="btn btnGoldOutline btnSm">
+      <Link href={ctaHref} className={`btn btnGoldOutline btnSm ${styles.ctaDesktop}`}>
         {ctaLabel}
       </Link>
+
+      <button
+        type="button"
+        className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ""}`}
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((v) => !v)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      <div className={`${styles.drawer} ${menuOpen ? styles.drawerOpen : ""}`}>
+        <nav className={styles.drawerLinks}>
+          {NAV_ITEMS.map((item, i) => (
+            <Link
+              key={item.key}
+              href={item.href}
+              className={item.key === active ? styles.active : undefined}
+              style={{ transitionDelay: menuOpen ? `${80 + i * 45}ms` : "0ms" }}
+              onClick={() => setMenuOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <Link
+          href={ctaHref}
+          className={`btn btnGoldFill ${styles.drawerCta}`}
+          style={{ transitionDelay: menuOpen ? `${80 + NAV_ITEMS.length * 45}ms` : "0ms" }}
+          onClick={() => setMenuOpen(false)}
+        >
+          {ctaLabel}
+        </Link>
+      </div>
     </header>
   );
 }
