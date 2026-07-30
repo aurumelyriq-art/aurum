@@ -154,7 +154,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  justify-content: safe center;
   gap: 40px;
+  padding: calc(90px + env(safe-area-inset-top, 0px)) 24px calc(40px + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background: rgba(8, 7, 6, 0.98);
   backdrop-filter: blur(16px);
   opacity: 0;
@@ -175,6 +179,7 @@
   flex-direction: column;
   align-items: center;
   gap: 26px;
+  flex-shrink: 0;
 }
 .drawerLinks a {
   font-family: var(--font-display);
@@ -185,6 +190,18 @@
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), color 0.3s ease;
+}
+@media (max-height: 640px) {
+  .drawer {
+    gap: 24px;
+    padding-top: calc(80px + env(safe-area-inset-top, 0px));
+  }
+  .drawerLinks {
+    gap: 18px;
+  }
+  .drawerLinks a {
+    font-size: 22px;
+  }
 }
 .drawerOpen .drawerLinks a {
   opacity: 1;
